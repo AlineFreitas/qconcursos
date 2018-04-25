@@ -15,16 +15,35 @@ class DisciplinesController < ApplicationController
     @discipline = Discipline.find(params[:id])
   end
 
-  def delete
-    
-  end
-
   def create
+    @discipline = Discipline.new(discipline_params)
+
+    if @discipline.save
+      flash[:success] = "Disciplina criada com sucesso!"
+      redirect_to @discipline
+    else
+      render 'new'
+    end
   end
 
   def update
+
+    if @discipline.save
+      flash[:success] = "Disciplina atualizada com sucesso."
+    else
+    end
   end
 
   def destroy
+    if Discipline.find(params[:id]).destroy
+      flash[:success] = "User deleted"
+      redirect_to users_url
+    end
+  end
+
+
+  private
+  def discipline_params
+    return params.require(:discipline).permit(:name)
   end
 end
