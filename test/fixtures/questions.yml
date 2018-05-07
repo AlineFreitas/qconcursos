@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  statement: MyText
+  subject_matter_id: 1
+
+two:
+  type: 
+  statement: MyText
+  subject_matter_id: 1

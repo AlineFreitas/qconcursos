@@ -1,0 +1,19 @@
+<%= form_for(@question) do |f| %>
+  <%= f.label :statement %>:
+  <br/> <%= f.text_area :statement %>
+  <br/>
+  <%= f.label "Subject Matter" %>: <%= f.collection_select :subject_matter_id, SubjectMatter.order(:name), :id, :name, { include_blank: true} %>
+
+
+  <hr/>
+  <%= f.fields_for :options do |option_form| %>
+    <p>
+      A) <%= render 'options/form' %>
+      B) <%=  render 'options/form'%>
+      C) <%= %>
+      D) <%= %>
+      E) <%= %>
+    </p>
+  <% end %>
+  <p> <%= f.submit "Enviar" %> </p>
+<% end %>

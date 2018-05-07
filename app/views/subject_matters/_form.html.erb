@@ -1,0 +1,7 @@
+<%= form_for(@subject) do |f| %>
+  <%= f.label :name %>: <%= f.text_field :name %>
+  <br/>
+  <%= f.label :discipline_id %>: <%= f.collection_select :discipline_id, Discipline.order(:name), :id, :name, {include_blank: true} %>
+
+  <p> <%= f.submit "Enviar" %> </p>
+<% end %>

@@ -1,14 +1,16 @@
 <h1 id=top> <%= @discipline.name.capitalize %></h1>
 
 <% unless @discipline.subject_matters.empty? %>
-<%= @discipline.subject_matters.each do |subject| %>
+<% @discipline.subject_matters.each do |subject| %>
   <table>
     <tr> 
-      <td> <%= link_to subject.name, subject_matter_path(subject) %> </td> 
+      <td> <%= link_to subject.name, subject_matter_path(subject) %> </td>
+      <td> <%= link_to "Edit", edit_subject_matter_path(subject) %> </td>
       <td> <%= link_to "Destroy", subject_matter_path, method: :delete %> </td>
     </tr>
 
     <tr>
+      <td> </td>
       <td> </td>
       <td> <%= link_to "Topo", "#top" %> </td>
     </tr>

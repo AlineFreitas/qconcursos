@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :questions do
+    resources :options, only: [:new, :create, :edit, :update, :destroy]
+  end
+
   resources :subject_matters
   resources :disciplines
 

@@ -1,2 +1,2 @@
-<h1>SubjectMatters#show</h1>
-<p>Find me in app/views/subject_matters/show.html.erb</p>
+<h1> <%= @subject.name %> </h1>
+<h2> Belongs to <%= link_to @subject.discipline.name, discipline_path(@subject.discipline) %> </h2>

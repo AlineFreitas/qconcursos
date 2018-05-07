@@ -1,15 +1,19 @@
 <h1 name="top">Disciplines#index</h1>
+
+<p align="right"> <%= link_to "Nova Disciplina", new_discipline_path %> </p>
 <table>
   <% unless @disciplines.empty? %>
-    <%= @disciplines.each do |discipline| %>
+    <% @disciplines.each do |discipline| %>
     <tr>
       <td> <%= link_to discipline.name, discipline_path(discipline) %> </td>
+      <td> <%= link_to "Edit", edit_discipline_path(discipline) %> </td>
       <td> <%= link_to "Destroy", discipline_path(discipline), method: :delete %> </td>
     </tr>
     <% end %>
   <% end %>
   <tr>
-    <td> <%= link_to "Nova Disciplina", new_discipline_path %> </td>
+    <td> </td>
+    <td> </td>
     <td> <%= link_to "Voltar ao Topo", '#top' %> </td>
   </tr>
 </table>

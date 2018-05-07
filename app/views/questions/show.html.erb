@@ -1,0 +1,5 @@
+<h2> Belongs to <%= link_to @question.subject_matter.name, subject_matter_path(@question.subject_matter) %> </h2>
+<h1> <%= @question.statement %> </h1>
+<% @question.options.each do |option| %>
+  <p><%= option.description %></p>
+<% end %>

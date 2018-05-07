@@ -1,0 +1,18 @@
+<h1 name="top">Questions#index</h1>
+<p align="right"> <%= link_to "New Question", new_question_path %> </p>
+<table>
+  <% unless @questions.empty? %>
+  <% @questions.each do |question| %>
+    <tr>
+      <td> <%= link_to question.statement, question_path(question) %> </td>
+      <td> <%= link_to "Edit", edit_question_path(question) %> </td>
+      <td> <%= link_to "Destroy", question_path(question), method: :delete %> </td>
+    </tr>
+  <% end %>
+  <% end %>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>

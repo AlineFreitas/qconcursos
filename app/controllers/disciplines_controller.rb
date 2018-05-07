@@ -30,14 +30,13 @@ class DisciplinesController < ApplicationController
 
     if @discipline.save
       flash[:success] = "Disciplina atualizada com sucesso."
-    else
     end
   end
 
   def destroy
     if Discipline.find(params[:id]).destroy
       flash[:success] = "User deleted"
-      redirect_to users_url
+      redirect_to disciplines_url
     end
   end
 

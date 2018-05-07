@@ -1,2 +1,20 @@
-<h1>SubjectMatters#index</h1>
-<p>Find me in app/views/subject_matters/index.html.erb</p>
+<h1 name="top">SubjectMatters#index</h1>
+<p align="right"> <%= link_to "Add New Subject Matter", new_subject_matter_path %> </p>
+<table>
+  <% @subject_matters.each do |subject| %>
+
+  <tr>
+    <td> <%= link_to subject.name, subject_matter_path(subject) %> </td>
+    <td> <%= link_to subject.discipline.name, discipline_path(subject.discipline) %> </td>
+    <td> <%= link_to "Edit", edit_subject_matter_path(subject) %> </td>
+    <td> <%= link_to "Delete", subject_matter_path(subject), method: :delete %> </td>
+  </tr>
+
+  <tr>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> <%= link_to "Top", '#top' %> </td>
+  </tr>
+  <% end %>
+</table>

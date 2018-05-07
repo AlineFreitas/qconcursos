@@ -1,0 +1,18 @@
+<%= form_for(@question) do |f| %>
+  <%= f.label :statement %>:
+  <br/> <%= f.text_area :statement %>
+  <br/>
+  <%= f.label "Subject Matter" %>: <%= f.collection_select :subject_matter_id, SubjectMatter.order(:name), :id, :name, { include_blank: true} %>
+  <p>
+    <%= f.radio_button :question_type, "True/False" %> <%= f.label :type, "True/False" %>
+    <%= f.radio_button :question_type, "Multiple Choice" %>  <%= f.label :type, "Multiple Choice" %>
+  </p>
+  <hr/>
+
+  <%= f.fields_for :options do |option_form| %>
+    <%= render partial: "options/form", locals: { option: option_form } %>
+  <% end %>
+  <%= link_to_add_fields "Add Answer", f, :options %>
+
+  <p> <%= f.submit "Enviar" %> </p>
+<% end %>
